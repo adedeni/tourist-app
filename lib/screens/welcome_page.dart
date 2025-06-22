@@ -56,21 +56,23 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                       ),
                       SizedBox(height: 40),
-                      ResponsiveButton(width: 120),
+                      ResponsiveButton(width: 104),
                     ],
                   ),
                   Column(
-                    children: List.generate(3, (index){
+                    children: List.generate(3, (indexSlider) {
                       return Container(
+                        margin: const EdgeInsets.only(bottom: 2) ,
                         width: 8,
-                        height: 25,
+                        height: index==indexSlider? 25:8,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color: AppColor.mainColor
+                          color:index==indexSlider?  AppColor.mainColor:AppColor.mainColor.withOpacity(0.3),
                         ),
                       );
                     }),
                   ),
+                
                 ],
               ),
             ),

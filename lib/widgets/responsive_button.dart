@@ -9,7 +9,7 @@ class ResponsiveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width, height: 60,
+      width: width, height: 52,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: AppColor.mainColor
@@ -18,7 +18,8 @@ class ResponsiveButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("images/button.png"),
+          Image.asset("images/button.png", fit: BoxFit.cover,),
+          
         ],
       ),
 
