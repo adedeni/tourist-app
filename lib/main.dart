@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/screens/detail_page.dart';
-import 'package:travelapp/screens/navigation/main_page.dart';
-import 'package:travelapp/screens/welcome_page.dart';
+//import 'package:travelapp/screens/navigation/main_page.dart';
+//import 'package:travelapp/screens/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());

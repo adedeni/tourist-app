@@ -3,6 +3,7 @@ import 'package:travelapp/utilities/colors.dart';
 import 'package:travelapp/widgets/app_buttons.dart';
 import 'package:travelapp/widgets/app_large_text.dart';
 import 'package:travelapp/widgets/app_text.dart';
+import 'package:travelapp/widgets/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -13,6 +14,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int starRating = 4;
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,28 +37,33 @@ class _DetailPageState extends State<DetailPage> {
             ),
 
             Positioned(
-              left: 20,
+              left: 0,
+              right: 0,
               top: 30,
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.menu),
-                    color: Colors.white,
-                  ),
-
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.vertical_distribute),
-                    color: Colors.white,
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.menu),
+                      color: Colors.white,
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.more_vert),
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
               ),
             ),
+
             Positioned(
               top: 240,
               child: Container(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
                 width: MediaQuery.of(context).size.width,
                 height: 500,
                 decoration: BoxDecoration(
@@ -82,7 +89,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     Row(
                       children: [
                         Icon(Icons.location_on, color: AppColor.mainColor),
@@ -93,7 +100,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     Row(
                       children: [
                         Wrap(
@@ -110,7 +117,7 @@ class _DetailPageState extends State<DetailPage> {
                         AppText(text: "(4.0)", color: AppColor.textColor2),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     AppLargeText(
                       text: "People",
                       color: Colors.black.withOpacity(0.8),
@@ -121,18 +128,67 @@ class _DetailPageState extends State<DetailPage> {
                       text: "Number of people in your group",
                       color: AppColor.mainTextColor,
                     ),
+                    SizedBox(height: 10),
                     Wrap(
-                      children: 
-                        List.generate(5, (index) {
-                          return AppButtons(
-                            size: 50, 
-                            color: Colors.black, 
-                            backgroundColor: AppColor.buttonBackground,
-                             borderColor: AppColor.buttonBackground,
-                             isIcon: false);
-                        })
-                      
+                      children: List.generate(5, (index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButtons(
+                              size: 45,
+                              color: selectedIndex == index
+                                  ? Colors.white
+                                  : Colors.black,
+                              backgroundColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColor.buttonBackground,
+                              borderColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColor.buttonBackground,
+                              text: (index + 1).toString(),
+                            ),
+                          ),
+                        );
+                      }),
                     ),
+                    SizedBox(height: 10),
+                    AppLargeText(
+                      text: "Description",
+                      color: Colors.black.withOpacity(0.8),
+                      size: 20,
+                    ),
+                    SizedBox(height: 5),
+                    AppText(
+                      text:
+                          "You must go for a travel. Travelling helps get rid of pressure. Go to the mountains to see the nature.",
+                      color: AppColor.mainTextColor,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 20,
+              left: 20,
+              right: 20,
+              child: Container(
+                child: Row(
+                  children: [
+                    AppButtons(
+                      size: 50,
+                      color: AppColor.textColor1,
+                      backgroundColor: Colors.white,
+                      borderColor: AppColor.textColor1,
+                      isIcon: true,
+                      icon: Icons.favorite_border,
+                    ),
+                    SizedBox(width: 10),
+                    ResponsiveButton(isResponsive: true),
                   ],
                 ),
               ),
