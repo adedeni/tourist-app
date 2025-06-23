@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travelapp/cubit/cubit.dart';
 import 'package:travelapp/utilities/colors.dart';
 import 'package:travelapp/widgets/app_large_text.dart';
 import 'package:travelapp/widgets/app_text.dart';
@@ -36,7 +38,7 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
             child: Container(
-              margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 130, left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -56,23 +58,32 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                       ),
                       SizedBox(height: 40),
-                      ResponsiveButton(width: 104),
+                      GestureDetector(
+                        onTap: () {
+                          BlocProvider.of<AppCubit>(context).getData();
+                        },
+                        child: Container(
+                          width: 200,
+                          child: Row(children: [ResponsiveButton(width: 104)]),
+                        ),
+                      ),
                     ],
                   ),
                   Column(
                     children: List.generate(3, (indexSlider) {
                       return Container(
-                        margin: const EdgeInsets.only(bottom: 2) ,
+                        margin: const EdgeInsets.only(bottom: 2),
                         width: 8,
-                        height: index==indexSlider? 25:8,
+                        height: index == indexSlider ? 25 : 8,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color:index==indexSlider?  AppColor.mainColor:AppColor.mainColor.withOpacity(0.3),
+                          color: index == indexSlider
+                              ? AppColor.mainColor
+                              : AppColor.mainColor.withOpacity(0.3),
                         ),
                       );
                     }),
                   ),
-                
                 ],
               ),
             ),
