@@ -8,7 +8,7 @@ class DataModel {
   String location;
 
   DataModel({
-    required this.name,
+    required this.name, 
     required this.img,
     required this.price,
     required this.people,

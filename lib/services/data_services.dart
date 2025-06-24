@@ -22,5 +22,5 @@ class DataServices {
       return<DataModel> [];
     }
 
-  }
+  } 
 }
