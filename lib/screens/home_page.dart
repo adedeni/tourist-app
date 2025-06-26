@@ -15,6 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   //this with TickerProviderStateMixin is to allow you to use the tabcontroller state
+
+  static const String imgurBaseUrl = "https://i.imgur.com/";
+
   var images = {
     "balloning.png": "Balloning",
     "hiking.png": "Hiking",
@@ -23,7 +26,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   };
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(
+    TabController tabController = TabController(
       length: 3,
       vsync: this,
     ); //it has to be here because it get rebuild at every click, and it needs a context
@@ -66,7 +69,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     alignment: Alignment.centerLeft,
                     child: TabBar(
                       labelPadding: EdgeInsets.only(left: 20, right: 20),
-                      controller: _tabController,
+                      controller: tabController,
                       labelColor: Colors.black,
                       unselectedLabelColor: Colors.grey,
                       isScrollable: true,
@@ -88,7 +91,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   height: 300,
                   width: double.maxFinite,
                   child: TabBarView(
-                    controller: _tabController,
+                    controller: tabController,
                     children: [
                       ListView.builder(
                         itemCount: info.length,
@@ -106,7 +109,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,
                                 image: DecorationImage(
-                                  image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+info[index].img),
+                                  image: NetworkImage(imgurBaseUrl+info[index].img + ".jpg"),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -151,9 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,
                                 image: DecorationImage(
-                                  image: AssetImage(
-                                    "images/" + images.keys.elementAt(index),
-                                  ),
+                                  image: NetworkImage(imgurBaseUrl+info[index].img + ".jpg"),
                                   fit: BoxFit.cover,
                                 ),
                               ),

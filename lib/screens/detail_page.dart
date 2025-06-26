@@ -16,6 +16,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  static const String imgurBaseUrl = "https://i.imgur.com/";
   int starRating = 4;
   int selectedIndex = -1;
   @override
@@ -35,7 +36,8 @@ class _DetailPageState extends State<DetailPage> {
                     height: 280,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+detail.place.img),
+                        
+                        image: NetworkImage(imgurBaseUrl+detail.place.img + ".jpg"),
                         fit: BoxFit.cover,
                       ),
                     ),

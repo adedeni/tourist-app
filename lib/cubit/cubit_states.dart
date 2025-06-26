@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:travelapp/model/data_model.dart';
 
-abstract class CubitStates extends Equatable{}
+abstract class CubitStates extends Equatable{
+  get places => null;
+}
 
 class InitialState extends CubitStates {
   @override
