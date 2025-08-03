@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings, no_leading_underscores_for_local_identifiers, must_be_immutable, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/cubit/cubit.dart';
@@ -64,26 +66,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 SizedBox(height: 10),
                 //tabbar
-                Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: TabBar(
-                      labelPadding: EdgeInsets.only(left: 20, right: 20),
-                      controller: tabController,
-                      labelColor: Colors.black,
-                      unselectedLabelColor: Colors.grey,
-                      isScrollable: true,
-                      indicator: CircleIndicator(
-                        color: AppColor.mainColor,
-                        radius: 4,
-                      ),
-                      indicatorSize: TabBarIndicatorSize.label,
-                      tabs: [
-                        Tab(text: "Places"),
-                        Tab(text: "Inspirations"),
-                        Tab(text: "Emotions"),
-                      ],
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TabBar(
+                    labelPadding: EdgeInsets.only(left: 20, right: 20),
+                    controller: tabController,
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.grey,
+                    isScrollable: true,
+                    indicator: CircleIndicator(
+                      color: AppColor.mainColor,
+                      radius: 4,
                     ),
+                    indicatorSize: TabBarIndicatorSize.label,
+                    tabs: [
+                      Tab(text: "Places"),
+                      Tab(text: "Inspirations"),
+                      Tab(text: "Emotions"),
+                    ],
                   ),
                 ),
                 Container(
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               ),
                             ),
                             SizedBox(height: 10),
-                            Container(
+                            SizedBox(
                               height: 20,
                               child: AppText(
                                 text: images.values.elementAt(index),

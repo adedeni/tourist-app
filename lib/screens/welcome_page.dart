@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, deprecated_member_use, prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/cubit/cubit.dart';

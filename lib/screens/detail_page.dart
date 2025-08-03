@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/cubit/cubit.dart';
@@ -37,7 +39,7 @@ class _DetailPageState extends State<DetailPage> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         
-                        image: NetworkImage(imgurBaseUrl+detail.place.img + ".jpg"),
+                        image: NetworkImage("$imgurBaseUrl${detail.place.img}.jpg"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -98,7 +100,7 @@ class _DetailPageState extends State<DetailPage> {
                               color: Colors.black.withOpacity(0.75),
                             ),
                             AppLargeText(
-                              text: "\$"+detail.place.price.toString(),
+                              text: "\$${detail.place.price}",
                               color: AppColor.mainColor.withOpacity(0.8),
                             ),
                           ],
@@ -190,21 +192,19 @@ class _DetailPageState extends State<DetailPage> {
                   bottom: 20,
                   left: 20,
                   right: 20,
-                  child: Container(
-                    child: Row(
-                      children: [
-                        AppButtons(
-                          size: 50,
-                          color: AppColor.textColor1,
-                          backgroundColor: Colors.white,
-                          borderColor: AppColor.textColor1,
-                          isIcon: true,
-                          icon: Icons.favorite_border,
-                        ),
-                        SizedBox(width: 10),
-                        ResponsiveButton(isResponsive: true),
-                      ],
-                    ),
+                  child: Row(
+                    children: [
+                      AppButtons(
+                        size: 50,
+                        color: AppColor.textColor1,
+                        backgroundColor: Colors.white,
+                        borderColor: AppColor.textColor1,
+                        isIcon: true,
+                        icon: Icons.favorite_border,
+                      ),
+                      SizedBox(width: 10),
+                      ResponsiveButton(isResponsive: true),
+                    ],
                   ),
                 ),
               ],

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:travelapp/screens/navigation/bar_item.dart';
 import 'package:travelapp/screens/home_page.dart';
