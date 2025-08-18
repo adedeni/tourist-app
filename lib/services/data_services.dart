@@ -5,9 +5,9 @@ import "package:http/http.dart" as http;
 import "package:travelapp/model/data_model.dart";
 
 class DataServices {
-  String baseUrl = 'https://api.mocki.io';
+  String baseUrl = 'https://api.npoint.io';
  Future<List<DataModel>> getInfo () async {
-    var apiUrl = '/v2/bd4f76qb/travel_app';
+    var apiUrl = '/d47e3bd0e205149ea208';
 
     http.Response res = await http.get(Uri.parse(baseUrl+apiUrl));
 

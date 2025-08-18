@@ -16,9 +16,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  //this with TickerProviderStateMixin is to allow you to use the tabcontroller state
+  //this with TickerProviderStateMixin is to allow you to use the tab controller state
 
-  static const String imgurBaseUrl = "https://i.imgur.com/";
+ 
 
   var images = {
     "balloning.png": "Balloning",
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,
                                 image: DecorationImage(
-                                  image: NetworkImage(imgurBaseUrl+info[index].img + ".jpg"),
+                                  image: NetworkImage(info[index].img),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,
                                 image: DecorationImage(
-                                  image: NetworkImage(imgurBaseUrl+info[index].img + ".jpg"),
+                                  image: NetworkImage(info[index].images),
                                   fit: BoxFit.cover,
                                 ),
                               ),
